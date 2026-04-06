@@ -31,6 +31,8 @@ export interface BentoGridDProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const BentoGridD = React.forwardRef<HTMLDivElement, BentoGridDProps>(
   ({ children, className, ...props }, ref) => {
+    const childArray = React.Children.toArray(children);
+
     return (
       <div
         ref={ref}
@@ -40,8 +42,9 @@ export const BentoGridD = React.forwardRef<HTMLDivElement, BentoGridDProps>(
         )}
         {...props}
       >
-        {React.Children.map(children, (child) => (
+        {childArray.map((child, index) => (
           <div
+            key={index}
             className={cn(
               'break-inside-avoid mb-4',
               'rounded-lg border border-gray-200 bg-white shadow-sm overflow-hidden',
