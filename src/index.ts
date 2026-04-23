@@ -1,11 +1,13 @@
+import './index.css';
+
 // Utilities
-export { cn } from './utils/cn';
+export { cn, type ClassValue } from './utils/cn';
 
 // Primitives
 export { Grid } from './primitives/Grid';
 export type { GridProps } from './primitives/Grid';
 export { Card } from './primitives/Card';
-export type { CardProps } from './primitives/Card';
+export type { CardProps, CardVariant, CardAccent } from './primitives/Card';
 
 // Bento Grid Components
 export { BentoGridA } from './components/BentoGridA';
@@ -18,3 +20,5 @@ export { BentoGridD } from './components/BentoGridD';
 export type { BentoGridDProps } from './components/BentoGridD';
 export { BentoGridE } from './components/BentoGridE';
 export type { BentoGridEProps } from './components/BentoGridE';
+export { BentoGridF } from './components/BentoGridF';
+export type { BentoGridFProps } from './components/BentoGridF';

@@ -1,10 +1,12 @@
 import React from 'react';
-import { cn } from '../utils/cn';
+import { cn, type ClassValue } from '../utils/cn';
 
 export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
-  cols?: number | { sm?: number; md?: number; lg?: number };
+  cols?: number | { sm?: number; md?: number; lg?: number; xl?: number; '2xl'?: number };
   gap?: number | string;
   children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const GRID_COL_CLASS_MAP = {
@@ -49,6 +51,34 @@ const GRID_COL_CLASS_MAP = {
     10: 'lg:grid-cols-10',
     11: 'lg:grid-cols-11',
     12: 'lg:grid-cols-12',
+  },
+  xl: {
+    1: 'xl:grid-cols-1',
+    2: 'xl:grid-cols-2',
+    3: 'xl:grid-cols-3',
+    4: 'xl:grid-cols-4',
+    5: 'xl:grid-cols-5',
+    6: 'xl:grid-cols-6',
+    7: 'xl:grid-cols-7',
+    8: 'xl:grid-cols-8',
+    9: 'xl:grid-cols-9',
+    10: 'xl:grid-cols-10',
+    11: 'xl:grid-cols-11',
+    12: 'xl:grid-cols-12',
+  },
+  '2xl': {
+    1: '2xl:grid-cols-1',
+    2: '2xl:grid-cols-2',
+    3: '2xl:grid-cols-3',
+    4: '2xl:grid-cols-4',
+    5: '2xl:grid-cols-5',
+    6: '2xl:grid-cols-6',
+    7: '2xl:grid-cols-7',
+    8: '2xl:grid-cols-8',
+    9: '2xl:grid-cols-9',
+    10: '2xl:grid-cols-10',
+    11: '2xl:grid-cols-11',
+    12: '2xl:grid-cols-12',
   },
 } as const;
 
@@ -97,6 +127,28 @@ export const Grid = React.forwardRef<HTMLDivElement, GridProps>(
 
           if (lgClass) {
             classes.push(lgClass);
+          }
+        }
+
+        if (cols.xl) {
+          const xlClass =
+            GRID_COL_CLASS_MAP.xl[
+              cols.xl as keyof typeof GRID_COL_CLASS_MAP.xl
+            ];
+
+          if (xlClass) {
+            classes.push(xlClass);
+          }
+        }
+
+        if (cols['2xl']) {
+          const xl2Class =
+            GRID_COL_CLASS_MAP['2xl'][
+              cols['2xl'] as keyof typeof GRID_COL_CLASS_MAP['2xl']
+            ];
+
+          if (xl2Class) {
+            classes.push(xl2Class);
           }
         }
 

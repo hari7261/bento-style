@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bento-bg: #0a0a0a;
+    --bento-card-bg: #141414;
+    --bento-card-border: #262626;
+    --bento-grid-color: rgba(255, 255, 255, 0.02);
+    --accent-blue: #3b82f6;
+    --accent-purple: #a855f7;
+    --accent-indigo: #6366f1;
+  }
+
+  body {
+    background-color: var(--bento-bg);
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .bento-grid-bg {
+    background-image:
+      linear-gradient(var(--bento-grid-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--bento-grid-color) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .bento-card {
+    @apply rounded-[2rem] border border-[#262626] bg-[#141414] overflow-hidden transition-all duration-500;
+  }
+
+  .bento-card:hover {
+    @apply border-[#404040] shadow-[0_0_40px_-15px_rgba(255,255,255,0.1)];
+  }
+
+  .bento-button-primary {
+    @apply px-6 py-2.5 bg-white/5 hover:bg-white/10 text-white rounded-full border border-white/10 transition-all active:scale-95;
+  }
+
+  .bento-tag {
+    @apply px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-medium text-gray-400 uppercase tracking-wider;
+  }
+
+  .text-gradient-premium {
+    background: linear-gradient(135deg, #fff 0%, #888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-purple {
+    background: linear-gradient(135deg, #c084fc 0%, #9333ea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .vertical-label {
+    @apply absolute top-8 right-6 text-[10px] uppercase tracking-[0.3em] text-gray-600 font-bold;
+    writing-mode: vertical-rl;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}

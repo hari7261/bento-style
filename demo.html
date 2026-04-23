@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bento Style - Premium Demo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="src/index.css">
+  <style>
+    body { background-color: #0a0a0a; color: white; font-family: 'Inter', system-ui, sans-serif; }
+    .demo-container { max-width: 1200px; margin: 0 auto; padding: 4rem 1rem; }
+    .section-header { margin-bottom: 3rem; text-align: center; }
+    .section-header h2 { font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.4em; color: #444; margin-bottom: 0.5rem; }
+    .section-header p { font-size: 1.5rem; font-weight: 900; color: #fff; }
+  </style>
+</head>
+<body>
+  <header class="py-20 px-6 border-b border-white/5 text-center bg-[#0d0d0d]">
+    <h1 class="text-6xl font-black tracking-tighter text-white mb-4">Bento Style<span class="text-indigo-500">.</span></h1>
+    <p class="text-gray-500 text-xl font-medium">Premium React Component Library for State-of-the-Art Interfaces</p>
+  </header>
+
+  <main class="demo-container space-y-32">
+
+    <!-- BentoGridA -->
+    <section>
+      <div class="section-header">
+        <h2>Grid Layout A</h2>
+        <p>Educational Platform</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 bg-[#0d0d0d] rounded-[3rem] border border-white/5">
+        <div class="md:col-span-2 bento-card flex flex-col md:flex-row group">
+          <div class="flex-1 p-10 flex flex-col justify-between">
+            <div>
+              <h3 class="text-4xl font-black text-white mb-4">Epic Web</h3>
+              <p class="text-gray-500 text-xl font-medium leading-relaxed">Become a full stack web developer.</p>
+            </div>
+            <button class="bento-button-primary w-fit mt-8">Visit course ↗</button>
+          </div>
+          <div class="flex-1 bento-grid-bg bg-[#0a0a0a] border-l border-[#262626] relative flex items-center justify-center p-12 overflow-hidden">
+            <span class="vertical-label">Full Stack Course</span>
+            <div class="w-full max-w-[240px] relative z-10 group-hover:scale-105 transition-transform duration-700">
+               <div class="absolute inset-0 bg-blue-600/20 blur-[100px] rounded-full"></div>
+               <div class="relative z-10 aspect-square bg-[#1a1a1a] rounded-[2rem] border border-white/10 flex items-center justify-center text-4xl font-black text-white shadow-2xl">EW</div>
+            </div>
+          </div>
+        </div>
+        <div class="bento-card group">
+          <div class="h-64 bento-grid-bg bg-[#0a0a0a] border-b border-[#262626] relative flex items-center justify-center p-12 overflow-hidden">
+            <span class="vertical-label">React Course</span>
+            <div class="w-full max-w-[140px] aspect-square bg-cyan-600/10 rounded-[2rem] border border-cyan-500/20 flex items-center justify-center text-4xl relative z-10 group-hover:scale-110 transition-transform duration-700">RC</div>
+          </div>
+          <div class="p-8 flex justify-between items-center">
+            <h4 class="text-2xl font-black text-white">Epic React</h4>
+            <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-xl">↗</div>
+          </div>
+        </div>
+        <div class="bento-card group">
+          <div class="h-64 bento-grid-bg bg-[#0a0a0a] border-b border-[#262626] relative flex items-center justify-center p-12 overflow-hidden">
+            <span class="vertical-label">Testing Course</span>
+            <div class="w-full max-w-[140px] aspect-square bg-yellow-600/10 rounded-[2rem] border border-yellow-500/20 flex items-center justify-center text-4xl relative z-10 group-hover:scale-110 transition-transform duration-700">TJ</div>
+          </div>
+          <div class="p-8 flex justify-between items-center">
+            <h4 class="text-2xl font-black text-white">Testing JavaScript</h4>
+            <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-xl">↗</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BentoGridB -->
+    <section>
+      <div class="section-header">
+        <h2>Grid Layout B</h2>
+        <p>SaaS Feature Grid</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 bg-[#0d0d0d] p-8 rounded-[3rem] border border-white/5">
+         <div class="md:col-span-2 bento-card p-10 flex flex-col justify-between h-[320px]">
+            <div>
+               <h3 class="text-xl font-black text-white">Scenarios made easy</h3>
+               <p class="text-gray-600 text-sm mt-2 font-medium">Graphical editor for powerful workflows.</p>
+            </div>
+            <div class="flex gap-3">
+               <div class="px-4 py-2 bg-[#1a1a1a] rounded-xl border border-[#262626] text-[10px] font-black uppercase text-gray-500">Planning</div>
+               <div class="px-4 py-2 bg-[#1a1a1a] rounded-xl border border-[#262626] text-[10px] font-black uppercase text-gray-500">Prediction</div>
+            </div>
+         </div>
+         <div class="bento-card p-10 flex flex-col items-center justify-center text-center h-[320px]">
+            <div class="w-24 h-24 rounded-full border-4 border-indigo-600/20 border-t-indigo-500 flex items-center justify-center mb-4">
+               <span class="text-xl font-mono font-black">09:16</span>
+            </div>
+            <h3 class="text-sm font-black text-white uppercase tracking-widest">Scheduler</h3>
+         </div>
+         <div class="md:row-span-2 bento-card p-10 flex flex-col justify-between">
+            <h3 class="text-xl font-black text-white mb-8">Customize</h3>
+            <div class="space-y-4">
+               <div class="h-10 w-full bg-[#1a1a1a] rounded-xl border border-white/5"></div>
+               <button class="w-full py-3 bg-indigo-600 rounded-xl text-xs font-black uppercase">Get Started</button>
+            </div>
+         </div>
+         <div class="bento-card p-10 flex flex-col justify-center items-center text-center">
+            <div class="text-3xl font-black text-blue-500 mb-2">Multi</div>
+            <div class="text-[10px] font-black text-gray-600 uppercase">User State</div>
+         </div>
+         <div class="bento-card p-10 flex flex-col justify-center items-center text-center">
+            <button class="px-6 py-2 bg-red-600/10 text-red-500 border border-red-500/20 rounded-full text-[10px] font-black uppercase tracking-widest">Run Task</button>
+         </div>
+         <div class="md:col-span-2 bento-card p-10 flex flex-col justify-between">
+            <h3 class="text-xl font-black text-white">TalkToTaipy</h3>
+            <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-xs text-gray-500">Natural language datasets...</div>
+         </div>
+      </div>
+    </section>
+
+    <!-- BentoGridC -->
+    <section>
+      <div class="section-header">
+        <h2>Grid Layout C</h2>
+        <p>Financial Dashboard</p>
+      </div>
+      <!-- C has 6 columns in React, mocking with 3 cols here for simplicity in static HTML -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+         <div class="bento-card p-10 h-[350px] flex flex-col justify-between">
+            <div class="space-y-4">
+               <div class="p-4 bg-white/5 rounded-2xl flex justify-between items-center"><span class="text-xs font-bold">Adobe</span> <span class="font-mono text-xs">$550</span></div>
+               <div class="p-4 bg-white/5 rounded-2xl flex justify-between items-center"><span class="text-xs font-bold">Framer</span> <span class="font-mono text-xs">$60</span></div>
+            </div>
+            <h3 class="text-xl font-black">Automatic Payments</h3>
+         </div>
+         <div class="bento-card p-10 h-[350px] flex flex-col justify-between items-center text-center">
+            <div class="p-6 bg-[#1a1a1a] rounded-[2rem] border border-white/5 w-40">
+               <div class="text-3xl font-black">$199</div>
+               <div class="text-[10px] font-black text-gray-600 uppercase mt-1">Basic</div>
+            </div>
+            <h3 class="text-xl font-black">Billing Models</h3>
+         </div>
+         <div class="bento-card p-10 h-[350px] flex flex-col justify-between">
+            <div class="p-5 bg-white/5 rounded-2xl space-y-2 opacity-50">
+               <div class="flex justify-between text-[10px]"><span>Revenue</span> <span>$12,344</span></div>
+               <div class="flex justify-between text-[10px]"><span>Refunds</span> <span class="text-red-500">-$1,159</span></div>
+            </div>
+            <h3 class="text-xl font-black">Close Books Quickly</h3>
+         </div>
+      </div>
+    </section>
+
+    <!-- BentoGridD, E, F... -->
+    <!-- (Mocking the rest with labels for the user to see the flow) -->
+    <section class="section-header pt-20">
+      <p class="opacity-30">And 3 more premium layouts (D, E, F) included in the library...</p>
+    </section>
+
+  </main>
+
+  <footer class="text-center py-24 text-gray-700 border-t border-white/5">
+    <p>bento-style v2.0.0 | No Emojis | Premium UI System</p>
+  </footer>
+</body>
+</html>

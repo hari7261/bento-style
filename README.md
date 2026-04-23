@@ -5,17 +5,16 @@ Production-ready Bento Grid React component library with Tailwind CSS.
 [![npm version](https://img.shields.io/npm/v/bento-style.svg)](https://www.npmjs.com/package/bento-style)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A modern, TypeScript-first component library providing beautiful Bento Grid layouts for React applications. Tree-shakeable, fully typed, and designed to work seamlessly with Tailwind CSS.
+`bento-style` gives React teams a set of polished Bento layout components plus low-level `Grid` and `Card` primitives. It is TypeScript-first, tree-shakeable, and designed for Tailwind CSS projects.
 
 ## Features
 
-✨ **5 Production-Ready Bento Grids** – Minimal, Spotlight, Glassmorphic, Masonry, and Hero layouts
-🎨 **Tailwind-Friendly** – Built with Tailwind CSS utilities
-📦 **Tree-Shakeable** – Import only what you need
-🔷 **TypeScript** – Fully typed with TypeScript
-🧩 **Composable Primitives** – Grid and Card components for custom layouts
-⚡ **Zero Config** – Works out of the box
-🎯 **Override-Friendly** – Easy to customize with className prop
+- 6 production-ready Bento layouts: `BentoGridA` through `BentoGridF`
+- Typed React components and exported prop types
+- Composable `Grid` and `Card` primitives
+- Tailwind-friendly class names with override-friendly `className` props
+- Compiled CSS export for reusable `.bento-card`, `.bento-tag`, and helper styles
+- Package checks for type safety, tests, build output, and npm publish quality
 
 ## Installation
 
@@ -23,32 +22,32 @@ A modern, TypeScript-first component library providing beautiful Bento Grid layo
 npm install bento-style
 ```
 
-```bash
-yarn add bento-style
-```
-
-```bash
-pnpm add bento-style
-```
-
-### Peer Dependencies
-
-This library requires the following peer dependencies:
+Install the peer dependencies if your app does not already have them:
 
 ```bash
 npm install react react-dom tailwindcss
 ```
 
+## Required CSS
+
+Import the package stylesheet once in your app entry file.
+
+```tsx
+import 'bento-style/style.css';
+```
+
+For example, in Next.js App Router, add it to `app/layout.tsx`. In Vite, add it to `src/main.tsx`.
+
 ## Tailwind CSS Setup
 
-Add the library path to your `tailwind.config.js`:
+Add the package output to your Tailwind content list so Tailwind sees the utility classes used by the components.
 
 ```js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/bento-style/dist/**/*.{js,mjs}', // Add this line
+    './node_modules/bento-style/dist/**/*.{js,mjs}',
   ],
   theme: {
     extend: {},
@@ -60,296 +59,110 @@ module.exports = {
 ## Quick Start
 
 ```tsx
+import 'bento-style/style.css';
 import { BentoGridA, Card } from 'bento-style';
 
-function App() {
+export function App() {
   return (
-    <BentoGridA>
-      <Card>
-        <h3>Feature 1</h3>
-        <p>Description goes here</p>
-      </Card>
-      <Card>
-        <h3>Feature 2</h3>
-        <p>Description goes here</p>
-      </Card>
-      <Card>
-        <h3>Feature 3</h3>
-        <p>Description goes here</p>
-      </Card>
-    </BentoGridA>
+    <main className="min-h-screen bg-black p-6">
+      <BentoGridA className="mx-auto max-w-6xl" />
+
+      <section className="mx-auto mt-8 max-w-6xl">
+        <Card variant="bento" header={<h2 className="text-xl font-bold">Custom card</h2>}>
+          <p className="text-gray-400">Compose primitives with your own content.</p>
+        </Card>
+      </section>
+    </main>
   );
 }
 ```
 
 ## Components
 
-### BentoGridA - Minimal Clean Layout
-
-A clean, minimal 3-column responsive grid with equal-sized cards.
-
 ```tsx
-import { BentoGridA, Card } from 'bento-style';
-
-<BentoGridA>
-  <Card header={<h3>Title</h3>}>
-    <p>Content goes here</p>
-  </Card>
-  <Card>
-    <h3>Feature 2</h3>
-    <p>Another card</p>
-  </Card>
-  <Card footer={<button>Action</button>}>
-    <p>Card with footer</p>
-  </Card>
-</BentoGridA>
+import {
+  BentoGridA,
+  BentoGridB,
+  BentoGridC,
+  BentoGridD,
+  BentoGridE,
+  BentoGridF,
+  Grid,
+  Card,
+} from 'bento-style';
 ```
 
-### BentoGridB - Spotlight Hover Effect
+- `BentoGridA`: course/product hero layout
+- `BentoGridB`: dashboard/product feature layout
+- `BentoGridC`: finance/SaaS layout
+- `BentoGridD`: portfolio profile layout
+- `BentoGridE`: services and works gallery layout
+- `BentoGridF`: developer expertise layout
+- `Grid`: responsive grid primitive
+- `Card`: flexible card primitive with `default`, `bordered`, `elevated`, `ghost`, `glass`, and `bento` variants
 
-Dynamic grid with spotlight hover effects that highlight cards on interaction.
-
-```tsx
-import { BentoGridB } from 'bento-style';
-
-<BentoGridB>
-  <div className="p-6">
-    <h3 className="text-xl font-bold">Interactive Card 1</h3>
-    <p>Hover to see the spotlight effect</p>
-  </div>
-  <div className="p-6">
-    <h3 className="text-xl font-bold">Interactive Card 2</h3>
-    <p>Beautiful hover animations</p>
-  </div>
-  <div className="p-6">
-    <h3 className="text-xl font-bold">Interactive Card 3</h3>
-    <p>Engaging user experience</p>
-  </div>
-</BentoGridB>
-```
-
-### BentoGridC - Glassmorphic Layout
-
-Modern glassmorphic design with frosted glass effect and backdrop blur.
-
-```tsx
-import { BentoGridC } from 'bento-style';
-
-<BentoGridC>
-  <div className="p-6">
-    <h3 className="text-xl font-bold text-gray-900">Glass Card 1</h3>
-    <p className="text-gray-600">Beautiful glassmorphic design</p>
-  </div>
-  <div className="p-6">
-    <h3 className="text-xl font-bold text-gray-900">Glass Card 2</h3>
-    <p className="text-gray-600">Frosted glass effect</p>
-  </div>
-</BentoGridC>
-```
-
-### BentoGridD - Masonry-Style Layout
-
-Pinterest-style masonry layout with asymmetric card sizes.
-
-```tsx
-import { BentoGridD } from 'bento-style';
-
-<BentoGridD>
-  <div className="p-6 h-48">
-    <h3 className="text-xl font-bold">Short Card</h3>
-    <p>Compact content</p>
-  </div>
-  <div className="p-6 h-64">
-    <h3 className="text-xl font-bold">Medium Card</h3>
-    <p>More content here</p>
-  </div>
-  <div className="p-6 h-96">
-    <h3 className="text-xl font-bold">Tall Card</h3>
-    <p>Even more content for variety</p>
-  </div>
-</BentoGridD>
-```
-
-### BentoGridE - Hero-Style Layout
-
-Asymmetric grid with a large hero area (2x2) and smaller supporting cards.
-
-```tsx
-import { BentoGridE } from 'bento-style';
-
-<BentoGridE>
-  <div className="p-8 flex items-center justify-center">
-    <h1 className="text-4xl font-bold">Hero Content</h1>
-  </div>
-  <div className="p-4">
-    <h3>Feature 1</h3>
-    <p>Supporting content</p>
-  </div>
-  <div className="p-4">
-    <h3>Feature 2</h3>
-    <p>Supporting content</p>
-  </div>
-  <div className="p-4">
-    <h3>Feature 3</h3>
-    <p>Supporting content</p>
-  </div>
-  <div className="p-4">
-    <h3>Feature 4</h3>
-    <p>Supporting content</p>
-  </div>
-</BentoGridE>
-```
-
-## Primitives
-
-### Grid Component
-
-Headless grid component with layout logic only.
-
-```tsx
-import { Grid } from 'bento-style';
-
-// Simple grid
-<Grid cols={3} gap={4}>
-  <div>Item 1</div>
-  <div>Item 2</div>
-  <div>Item 3</div>
-</Grid>
-
-// Responsive grid
-<Grid cols={{ sm: 1, md: 2, lg: 4 }} gap={6}>
-  <div>Item 1</div>
-  <div>Item 2</div>
-  <div>Item 3</div>
-  <div>Item 4</div>
-</Grid>
-```
-
-**Props:**
-- `cols` - Number of columns or responsive object `{ sm?, md?, lg? }`
-- `gap` - Gap size (number in rem units or string)
-- `className` - Additional CSS classes
-- All standard HTML div props
-
-### Card Component
-
-Flexible card component with slots for header, media, content, and footer.
-
-```tsx
-import { Card } from 'bento-style';
-
-<Card
-  header={<h3 className="font-bold">Card Title</h3>}
-  media={<img src="image.jpg" alt="Card" />}
-  footer={<button>Learn More</button>}
->
-  <p>Card content goes here</p>
-</Card>
-```
-
-**Props:**
-- `header` - Content for the header slot
-- `media` - Content for the media slot (e.g., images)
-- `children` - Main content area
-- `footer` - Content for the footer slot
-- `className` - Additional CSS classes
-- All standard HTML div props
-
-## Customization
-
-### Overriding Styles
-
-All components accept a `className` prop for easy customization:
-
-```tsx
-<BentoGridA className="gap-8 max-w-6xl mx-auto">
-  <Card className="bg-gradient-to-br from-purple-500 to-pink-500 text-white border-0">
-    <h3>Custom Styled Card</h3>
-  </Card>
-</BentoGridA>
-```
-
-### Custom Grid Layouts
-
-Use the `Grid` primitive to create your own layouts:
+## Primitive Examples
 
 ```tsx
 import { Grid, Card } from 'bento-style';
 
-<Grid cols={{ sm: 1, md: 2, lg: 4 }} gap={6} className="my-8">
-  <Card className="md:col-span-2">
-    <h3>Wide Card</h3>
-  </Card>
-  <Card>
-    <h3>Regular Card</h3>
-  </Card>
-  <Card>
-    <h3>Regular Card</h3>
-  </Card>
-</Grid>
-```
-
-### Extending Components
-
-Create your own variants by composing primitives:
-
-```tsx
-import { Grid, Card } from 'bento-style';
-
-function MyCustomBento({ children }) {
+export function CustomBento() {
   return (
-    <Grid cols={3} gap={4} className="p-4 bg-gray-50 rounded-xl">
-      {React.Children.map(children, (child) => (
-        <Card className="hover:scale-105 transition-transform">
-          {child}
-        </Card>
-      ))}
+    <Grid cols={{ sm: 1, md: 2, lg: 4 }} gap={6} className="p-6">
+      <Card variant="bento" className="lg:col-span-2">
+        <h3 className="text-2xl font-bold">Wide feature</h3>
+        <p className="text-gray-400">Use spans and Tailwind utilities freely.</p>
+      </Card>
+
+      <Card variant="glass" hover>
+        <h3 className="font-bold">Interactive card</h3>
+      </Card>
     </Grid>
   );
 }
 ```
 
-## TypeScript Support
-
-Full TypeScript support with exported types:
+## TypeScript
 
 ```tsx
-import type { GridProps, CardProps, BentoGridAProps } from 'bento-style';
-
-const MyGrid: React.FC<GridProps> = (props) => {
-  return <Grid {...props} />;
-};
+import type {
+  BentoGridAProps,
+  BentoGridFProps,
+  CardProps,
+  GridProps,
+} from 'bento-style';
 ```
 
-## API Reference
+The package also exports `cn` and `ClassValue` for teams that want the same Tailwind class merge behavior.
 
-### Utility Functions
+## Developer Guide
 
-#### `cn(...inputs: ClassValue[])`
+For local development, testing, publishing, GitHub release steps, and integration notes, see [DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md).
 
-Utility function for merging Tailwind CSS classes using `clsx` and `tailwind-merge`.
+## Scripts
 
-```tsx
-import { cn } from 'bento-style';
-
-<div className={cn('base-class', someCondition && 'conditional-class', className)} />
+```bash
+npm run typecheck
+npm run test
+npm run build
+npm run lint:package
+npm run pack:check
+npm run check
 ```
+
+`npm run check` is the full release gate and should pass before every npm or GitHub release.
 
 ## Browser Support
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+- Chrome latest
+- Firefox latest
+- Safari latest
+- Edge latest
 
 ## License
 
-MIT © [bento-style](LICENSE)
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+MIT. See [LICENSE](LICENSE).
 
 ## Support
 
-If you encounter any issues or have questions, please [open an issue](https://github.com/hari7261/bento-style/issues).
+Open issues at https://github.com/hari7261/bento-style/issues.
